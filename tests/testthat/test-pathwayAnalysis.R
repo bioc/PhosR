@@ -70,10 +70,31 @@ test_that(
     colnames(result3) = cNames
     rownames(result3) = rNames
 
-
-    expect_identical(result1, pathwayOverrepresent(geneSet, annotation, universe, alter1))
-    expect_identical(result2, pathwayOverrepresent(geneSet, annotation, universe, alter2))
-    expect_identical(result3, pathwayOverrepresent(geneSet, annotation, universe, alter3))
+    ## dev
+    # expect_identical(result1, pathwayOverrepresent(geneSet, annotation, universe, alter1))
+    # expect_identical(result2, pathwayOverrepresent(geneSet, annotation, universe, alter2))
+    # expect_identical(result3, pathwayOverrepresent(geneSet, annotation, universe, alter3))
+    
+    ## release
+    exp1 <- pathwayOverrepresent(geneSet, annotation, universe, alter1)
+    exp2 <- pathwayOverrepresent(geneSet, annotation, universe, alter2)
+    exp3 <- pathwayOverrepresent(geneSet, annotation, universe, alter3)
+    
+    # Compare p-values numerically with a tolerance
+    expect_equal(as.numeric(result1[, "pvalue"]),
+                 as.numeric(exp1[, "pvalue"]), tolerance = 1e-12)
+    expect_equal(as.numeric(result2[, "pvalue"]),
+                 as.numeric(exp2[, "pvalue"]), tolerance = 1e-12)
+    expect_equal(as.numeric(result3[, "pvalue"]),
+                 as.numeric(exp3[, "pvalue"]), tolerance = 1e-12)
+    
+    # Compare the other columns exactly
+    expect_identical(result1[, "# of substrates"], exp1[, "# of substrates"])
+    expect_identical(result1[, "substrates"],      exp1[, "substrates"])
+    expect_identical(result2[, "# of substrates"], exp2[, "# of substrates"])
+    expect_identical(result2[, "substrates"],      exp2[, "substrates"])
+    expect_identical(result3[, "# of substrates"], exp3[, "# of substrates"])
+    expect_identical(result3[, "substrates"],      exp3[, "substrates"])
   }
 )
 

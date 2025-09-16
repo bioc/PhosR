@@ -1,0 +1,15 @@
+setwd("~/src/PhosR")#
+file.exists("DESCRIPTION")  # should be TRUE
+unlink("PhosR.Rcheck", recursive = TRUE, force = TRUE)#
+unlink("PhosR.BiocCheck", recursive = TRUE, force = TRUE)
+install.packages("pkgbuild", repos = "https://cloud.r-project.org")#
+tb <- pkgbuild::build(".", dest_path = tempdir(),#
+                      vignettes = FALSE, manual = FALSE)#
+tb
+rcmdcheck::rcmdcheck(tb, args = c("--no-manual","--as-cran"), error_on = "never")
+rcmdcheck::rcmdcheck(tb, args = c("--no-manual","--as-cran"), error_on = "never")
+rcmdcheck::rcmdcheck(tb, args = c("--no-manual","--as-cran"), error_on = "never")
+# replace with your actual path#
+setwd("/Users/dxiao/CMRI Dropbox/Di Xiao/Projects/PhosR")#
+file.exists("DESCRIPTION")      # should be TRUE#
+read.dcf("DESCRIPTION")[,"Package"]  # should print "PhosR"

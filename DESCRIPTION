@@ -1,65 +1,71 @@
-Package: PhosR
 Type: Package
-Title: A set of methods and tools for comprehensive analysis of phosphoproteomics data
-Version: 1.18.4
+Package: PhosR
+Title: A Set of Methods and Tools for Comprehensive Analysis of
+    Phosphoproteomics Data
+Version: 1.18.5
 Authors@R: c(
-    person("Pengyi", "Yang", email = "pengyi.yang@sydney.edu.au", role = c("aut")),
-    person("Di", "Xiao", email = "di.xiao@sydney.edu.au", role = c("aut", "cre")),
-    person("Hani Jieun", "Kim", email = "jieun.kim@sydney.edu.au", role = c("aut")))
-Description: PhosR is a package for the comprenhensive analysis of phosphoproteomic data.
-    There are two major components to PhosR: processing and downstream analysis.
-    PhosR consists of various processing tools for phosphoproteomics data
-    including filtering, imputation, normalisation, and functional analysis
-    for inferring active kinases and signalling pathways.
+    person("Di", "Xiao", , "di.xiao@sydney.edu.au", role = c("aut", "cre")),
+    person("Pengyi", "Yang", , "pengyi.yang@sydney.edu.au", role = "aut"),
+    person("Hani Jieun", "Kim", , "jieun.kim@sydney.edu.au", role = "aut")
+  )
+Description: Comprehensive analysis of phosphoproteomics data. Provides
+    methods and tools for filtering, imputation, normalisation, and
+    downstream functional analysis to infer active kinases and signalling
+    pathways.
 License: GPL-3 + file LICENSE
-Depends: R (>= 4.2.0)
+URL: https://bioconductor.org/packages/PhosR,
+    https://github.com/PYangLab/PhosR
+BugReports: https://github.com/PYangLab/PhosR/issues
+Depends: 
+    R (>= 4.3.0)
 Imports:
-    ruv,
-    e1071,
-    dendextend,
-    limma,
-    pcaMethods,
-    stats,
-    RColorBrewer,
-    circlize,
-    dplyr,
-    igraph,
-    pheatmap,
-    preprocessCore,
-    tidyr,
-    rlang,
-    graphics,
-    grDevices,
-    utils,
-    SummarizedExperiment,
-    methods,
-    S4Vectors,
     BiocGenerics,
-    ggplot2,
+    circlize,
+    dendextend,
+    dplyr,
+    e1071,
     GGally,
     ggdendro,
+    ggplot2,
     ggpubr,
-    network,
-    reshape2,
     ggtext,
-    stringi
+    graphics,
+    grDevices,
+    igraph,
+    limma,
+    methods,
+    network,
+    pcaMethods,
+    pheatmap,
+    preprocessCore,
+    RColorBrewer,
+    reshape2,
+    rlang,
+    ruv,
+    S4Vectors,
+    stats,
+    stringi,
+    SummarizedExperiment,
+    tidyr,
+    utils
+Suggests:
+    annotate,
+    BiocStyle,
+    calibrate,
+    ClueR,
+    directPA,
+    knitr,
+    org.Mm.eg.db,
+    org.Rn.eg.db,
+    reactome.db,
+    rgl,
+    rmarkdown,
+    sna,
+    stringr,
+    testthat
+VignetteBuilder: 
+    knitr
+biocViews: Software, ResearchField, Proteomics, Pathways
 Encoding: UTF-8
 LazyData: false
 RoxygenNote: 7.2.2
-VignetteBuilder: knitr
-biocViews: Software, ResearchField, Proteomics
-Suggests:
-    testthat,
-    knitr,
-    rgl,
-    sna,
-    ClueR,
-    directPA,
-    rmarkdown,
-    org.Rn.eg.db,
-    org.Mm.eg.db,
-    reactome.db,
-    annotate,
-    BiocStyle,
-    stringr,
-    calibrate
